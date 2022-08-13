@@ -20,5 +20,4 @@ lib/*.js
 .env
 
 # locks
-package-lock.json
 yarn.lock
