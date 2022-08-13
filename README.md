@@ -35,7 +35,7 @@ npm install --save-dev ts-shader-loader
 and then
 
 ```javascript
-import myLovleyShaderGlsl from './myLovelyShader.glsl');
+import myLovleyShaderGlsl from './myLovelyShader.glsl';
 ```
 
 
@@ -68,18 +68,17 @@ import shader from '../shaders/fragment.glsl');
 I can have that shader include other `.glsl` files inline, like so:
 
 ```sass
-@import ./includes/perlin-noise;
+#include "./includes/perlin-noise.glsl";
 ```
 
-> **N.B.** all imports within `.glsl` files exclude the file extension and 
-are relative to the file doing the importing.
+> **N.B.** all includes within `.glsl` are relative to the file doing the importing.
 
-Imported files are parsed for `@import` statements as well, so you can nest
+Imported files are parsed for `#include` statements as well, so you can nest
 imports as deep as you'd like (although, you should probably rethink your
 shader if you require any more than 2 levels).
 
 Imported files are inserted directly into the source file in place of the
-`@import` statement and no special handling or error checking is provided. So,
+`#include` statement and no special handling or error checking is provided. So,
 if you get syntax errors, please first check that shader works as one 
 contiguous file before raising an issue.
 

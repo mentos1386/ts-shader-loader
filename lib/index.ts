@@ -14,7 +14,7 @@ async function parse(
   source: string,
   context: string
 ): Promise<string> {
-  const importPattern = /@import ([./\w_-]+);/gi;
+  const importPattern = /#import "([./\w_-]+)";/gi;
 
   // Find all imports
   const imports: Import[] = [];
@@ -45,7 +45,7 @@ async function processImports(
   }
 
   // Resolve import path
-  const resolvedPath = await loader.getResolve()(context, `${imp.key}.glsl`);
+  const resolvedPath = await loader.getResolve()(context, imp.key);
   loader.addDependency(resolvedPath);
 
   // Parse import
