@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/mentos1386/ts-shader-loader/compare/v2.0.0...v2.0.1) (2022-08-13)
+
+
+### Bug Fixes
+
+* **release:** npm publish not authenticated ([21494e8](https://github.com/mentos1386/ts-shader-loader/commit/21494e85c39f59445335a5ee16e1f2e6566e80a9))
+
 ## [2.0.0](https://github.com/mentos1386/ts-shader-loader/compare/v1.0.6...v2.0.0) (2022-08-13)
 
 
