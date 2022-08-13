@@ -14,5 +14,5 @@ jobs:
           node-version: 16
           cache: 'npm'
       - run: npm ci
-      - run: npm lint
-      - run: npm test
+      - run: npm run lint
+      - run: npm run test
