@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/mentos1386/ts-shader-loader/compare/v2.0.1...v2.0.2) (2022-11-15)
+
+
+### Bug Fixes
+
+* include logic didnt work ([117e5c9](https://github.com/mentos1386/ts-shader-loader/commit/117e5c9b348380588576cd64a26e4373dd8c1609))
+
 ## [2.0.1](https://github.com/mentos1386/ts-shader-loader/compare/v2.0.0...v2.0.1) (2022-08-13)
 
 

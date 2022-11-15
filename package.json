@@ -1,6 +1,6 @@
 {
   "name": "ts-shader-loader",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A webpack loader for glsl shaders - includes support for nested imports. Re-Written in TypeScript",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
