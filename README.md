@@ -22,7 +22,7 @@ npm install --save-dev ts-shader-loader
 ```javascript
 {
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.(glsl|vs|fs)$/,
                 loader: 'ts-shader-loader'
