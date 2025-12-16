@@ -1,6 +1,7 @@
 import { testCompiler } from "../test/compiler";
 import * as fs from "fs";
 import * as path from "path";
+import * as os from "os";
 
 const shader = (filename: string) =>
   path.resolve(__dirname, `../test/${filename}`);
@@ -9,7 +10,9 @@ const shaderContents = (filename: string) =>
 
 describe("Test extensions", () => {
   test.each([".glsl", ".vs", ".fs"])("extension %s", async (extension) => {
-    const { stats, bundleJs } = await testCompiler(shader("exampleShader" + extension));
+    const { stats, bundleJs } = await testCompiler(
+      shader("exampleShader" + extension),
+    );
     const data = stats.toJson({ source: true });
 
     console.log(bundleJs, stats.toJson());
@@ -21,7 +24,7 @@ describe("Test extensions", () => {
     if (data.modules === undefined) return;
 
     expect(data.modules[0].source).toBe(
-      `export default ${shaderContents("exampleShader" + extension)}`
+      `export default ${shaderContents("exampleShader" + extension)}`,
     );
   });
 });
@@ -37,6 +40,6 @@ test("include", async () => {
 
   if (data.modules === undefined) return;
   expect(data.modules[0].source).toBe(
-    `export default "// included, no semicolon\\n\\n// nested included"`
+    `export default "// included, no semicolon${os.EOL}${os.EOL}// nested included"`,
   );
 });
