@@ -36,7 +36,13 @@ test("include", async () => {
   expect(data.modules).toBeDefined();
 
   if (data.modules === undefined) return;
+  const contentTest = `// included
+
+// nested included
+
+// should not import this one:
+//#include "./doesnotexist.glsl"`;
   expect(data.modules[0].source).toBe(
-    `export default "// included\\n\\n// nested included"`
+    `export default ${JSON.stringify(contentTest)}`
   );
 });
