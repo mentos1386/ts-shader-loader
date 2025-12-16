@@ -14,7 +14,7 @@ async function parse(
   source: string,
   context: string
 ): Promise<string> {
-  const importPattern = /#include "([./\w_-]+)";?/gi;
+  const importPattern = /^#include "([./\w_-]+)";?/gmi;
 
   // Find all imports
   const imports: Import[] = [];
