@@ -1,6 +1,7 @@
 import { testCompiler } from "../test/compiler";
 import * as fs from "fs";
 import * as path from "path";
+import * as os from "os";
 
 const shader = (filename: string) =>
   path.resolve(__dirname, `../test/${filename}`);
@@ -37,6 +38,6 @@ test("include", async () => {
 
   if (data.modules === undefined) return;
   expect(data.modules[0].source).toBe(
-    `export default "// included\\n\\n// nested included"`
+    `export default "// included${os.EOL}${os.EOL}// nested included"`
   );
 });
