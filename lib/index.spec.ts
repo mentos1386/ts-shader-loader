@@ -39,7 +39,12 @@ test("include", async () => {
   expect(data.modules).toBeDefined();
 
   if (data.modules === undefined) return;
+
+  const eol = os.EOL
+      .replace("\r", "\\r")
+      .replace("\n", "\\n");
+
   expect(data.modules[0].source).toBe(
-    `export default "// included, no semicolon${os.EOL}${os.EOL}// nested included"`,
+    `export default "// included, no semicolon${eol}${eol}// nested included"`,
   );
 });
