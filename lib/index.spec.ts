@@ -36,7 +36,7 @@ test("include", async () => {
   expect(data.modules).toBeDefined();
 
   if (data.modules === undefined) return;
-  const contentTest = `// included
+  const contentTest = `// included, no semicolon
 
 // nested included
 
