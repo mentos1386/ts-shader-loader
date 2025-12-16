@@ -31,7 +31,7 @@ test("include", async () => {
   const { stats, bundleJs } = await testCompiler(shader("includer.glsl"));
   const data = stats.toJson({ source: true });
 
-  console.log(bundleJs, stats.toJson());
+  //console.log(bundleJs, stats.toJson());
 
   expect(data.errors).toEqual([]);
   expect(data.modules).toBeDefined();
