@@ -45,7 +45,12 @@ async function processImports(
   }
 
   // Resolve import path
-  const resolvedPath = await loader.getResolve()(context, imp.key);
+  let resolvedPath: string;
+  try {
+    resolvedPath = await loader.getResolve()(context, "./" + imp.key);
+  } catch {
+    resolvedPath = await loader.getResolve()(context, imp.key);
+  }
   loader.addDependency(resolvedPath);
 
   // Parse import
