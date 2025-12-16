@@ -37,6 +37,6 @@ test("include", async () => {
 
   if (data.modules === undefined) return;
   expect(data.modules[0].source).toBe(
-    `export default "// included\\n\\n// nested included"`
+    `export default "// included, no semicolon\\n\\n// nested included"`
   );
 });
