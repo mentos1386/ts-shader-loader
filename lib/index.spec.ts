@@ -33,18 +33,19 @@ test("include", async () => {
   const { stats, bundleJs } = await testCompiler(shader("includer.glsl"));
   const data = stats.toJson({ source: true });
 
-  //console.log(bundleJs, stats.toJson());
-
   expect(data.errors).toEqual([]);
   expect(data.modules).toBeDefined();
 
   if (data.modules === undefined) return;
 
-  const eol = os.EOL
-      .replace("\r", "\\r")
-      .replace("\n", "\\n");
+  const contentTest = `// included, no semicolon
+
+// nested included
+
+// should not import this one:
+//#include "./doesnotexist.glsl"`;
 
   expect(data.modules[0].source).toBe(
-    `export default "// included, no semicolon${eol}${eol}// nested included"`,
+    `export default ${JSON.stringify(contentTest)}`,
   );
 });
