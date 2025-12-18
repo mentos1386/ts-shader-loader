@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/mentos1386/ts-shader-loader/compare/v2.0.2...v2.1.0) (2025-12-18)
+
+
+### Features
+
+* ignore commented includes, optional semicolon, path resolv fixes ([495f0a6](https://github.com/mentos1386/ts-shader-loader/commit/495f0a6e568ce9f9ffae169d139717e185585743))
+
 ## [2.0.2](https://github.com/mentos1386/ts-shader-loader/compare/v2.0.1...v2.0.2) (2022-11-15)
 
 
