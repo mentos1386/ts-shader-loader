@@ -9,5 +9,6 @@
     "skipLibCheck": true,
     "declaration": true
   },
-  "exclude": ["example"]
+  "include": ["lib/**/*"],
+  "exclude": ["lib/**/*.spec.ts"]
 }

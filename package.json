@@ -39,6 +39,8 @@
     "loader-utils": "^3.3.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@jest/globals": "^30.2.0",
     "@types/jest": "^30.0.0",
     "@types/loader-utils": "^3.0.0",
     "@types/memory-fs": "^0.3.7",
@@ -50,6 +52,7 @@
     "memory-fs": "^0.5.0",
     "ts-jest": "^29.4.6",
     "typescript": "^5.9.3",
+    "typescript-eslint": "^8.50.0",
     "webpack": "^5.104.1"
   }
 }

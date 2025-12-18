@@ -1,4 +1,4 @@
-import * as path from "path";
+import { resolve as pathResolve } from "path";
 import { webpack, Stats, OutputFileSystem } from "webpack";
 import memoryfs from "memory-fs";
 
@@ -10,7 +10,7 @@ export const testCompiler = (
     context: __dirname,
     entry: fixture,
     output: {
-      path: path.resolve(__dirname),
+      path: pathResolve(__dirname),
       filename: "bundle.js",
     },
     module: {
@@ -18,7 +18,7 @@ export const testCompiler = (
         {
           test: /\.(glsl|vs|fs)$/,
           use: {
-            loader: path.resolve(__dirname, "../lib/index.ts"),
+            loader: pathResolve(__dirname, "../lib/index.ts"),
           },
         },
       ],
@@ -27,6 +27,7 @@ export const testCompiler = (
 
   const fileSystem = new memoryfs();
   // Types mismatch, but they match close enough for us.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   compiler.outputFileSystem = fileSystem as any as OutputFileSystem;
 
   return new Promise((resolve, reject) => {
@@ -36,7 +37,7 @@ export const testCompiler = (
         resolve({
           stats,
           bundleJs: fileSystem.readFileSync(
-            path.resolve(__dirname, "bundle.js"),
+            pathResolve(__dirname, "bundle.js"),
             "utf-8",
           ),
         });
