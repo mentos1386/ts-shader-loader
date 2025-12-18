@@ -1,3 +1,3 @@
-// included
+// included, no semicolon
 
-#include "./nestedIncluded.glsl";
+#include "./nestedIncluded.glsl"

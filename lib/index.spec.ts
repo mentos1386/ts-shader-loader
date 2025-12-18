@@ -43,6 +43,6 @@ test("include", async () => {
       .replace("\n", "\\n");
 
   expect(data.modules[0].source).toBe(
-    `export default "// included${eol}${eol}// nested included"`
+    `export default "// included, no semicolon${eol}${eol}// nested included"`
   );
 });
