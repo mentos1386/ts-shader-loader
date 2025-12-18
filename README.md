@@ -1,8 +1,8 @@
 # Webpack loader for GLSL shaders
 [![NPM](https://nodei.co/npm/ts-shader-loader.png)](https://npmjs.org/package/ts-shader-loader)
 
-A glsl shader loader for webpack, includes support for nested imports, 
-allowing for smart code reuse among more complex shader implementations. 
+A glsl shader loader for webpack, includes support for nested imports,
+allowing for smart code reuse among more complex shader implementations.
 The shader is returned as a string.
 
 ## Why fork
@@ -90,6 +90,10 @@ We can have that shader include other `.glsl` files inline, like so:
 
 ```sass
 #include "./includes/perlin-noise.glsl";
+
+//#include ./includes/this-wont-be-included";
+
+#include "./includes/the-semicolon-is-optional"
 ```
 
 > **N.B.** all includes within `.glsl` are relative to the file doing the importing.
@@ -99,7 +103,7 @@ imports as deep as you'd like.
 
 Imported files are inserted directly into the source file in place of the
 `#include` statement and no special handling or error checking is provided. So,
-if you get syntax errors, please first check that shader works as one 
+if you get syntax errors, please first check that shader works as one
 contiguous file before raising an issue.
 
 ## TODO
