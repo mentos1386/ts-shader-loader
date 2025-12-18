@@ -1,6 +1,6 @@
 {
   "name": "ts-shader-loader",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "A webpack loader for glsl shaders - includes support for nested imports. Re-Written in TypeScript",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -29,27 +29,27 @@
     "include",
     "typescript"
   ],
-  "author": "Tine Jozelj <mentos1386@tjo.space> (https://blog.tjo.space)",
+  "author": "Tine Jozelj <mentos1386@tjo.space> (https://mnts.dev)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mentos1386/ts-shader-loader/issues"
   },
   "homepage": "https://github.com/mentos1386/ts-shader-loader#readme",
   "dependencies": {
-    "loader-utils": "^3.2.0"
+    "loader-utils": "^3.3.1"
   },
   "devDependencies": {
-    "@types/jest": "^28.1.6",
-    "@types/loader-utils": "^2.0.3",
-    "@types/memory-fs": "^0.3.3",
-    "@types/node": "^18.6.5",
-    "@typescript-eslint/eslint-plugin": "^5.33.0",
-    "@typescript-eslint/parser": "^5.33.0",
-    "eslint": "^8.21.0",
-    "jest": "^28.1.3",
+    "@types/jest": "^30.0.0",
+    "@types/loader-utils": "^3.0.0",
+    "@types/memory-fs": "^0.3.7",
+    "@types/node": "^25.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.50.0",
+    "@typescript-eslint/parser": "^8.50.0",
+    "eslint": "^9.39.2",
+    "jest": "^30.2.0",
     "memory-fs": "^0.5.0",
-    "ts-jest": "^28.0.7",
-    "typescript": "^4.7.4",
-    "webpack": "^5.74.0"
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.3",
+    "webpack": "^5.104.1"
   }
 }
