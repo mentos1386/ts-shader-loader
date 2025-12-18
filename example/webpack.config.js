@@ -1,4 +1,5 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 module.exports = {
   mode: process.env.NODE_ENV || "development",
@@ -9,26 +10,26 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'ts-loader'
-        }
+          loader: "ts-loader",
+        },
       },
       {
         test: /\.glsl$/,
         exclude: /node_modules/,
         use: {
-          loader: 'ts-shader-loader'
-        }
-      }
-    ]
+          loader: "ts-shader-loader",
+        },
+      },
+    ],
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: [".ts", ".js"],
   },
-  plugins: [
-    new HtmlWebpackPlugin({template: './src/index.html'})
-  ],
+  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
   devtool: "source-map",
   devServer: {
-    contentBase: './dist/',
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
   },
-}
+};

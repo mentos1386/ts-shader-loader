@@ -1,21 +1,16 @@
 import { testCompiler } from "../test/compiler";
-import * as fs from "fs";
-import * as path from "path";
-import * as os from "os";
+import { readFileSync } from "fs";
+import { resolve } from "path";
+import { describe, expect, test } from "@jest/globals";
 
-const shader = (filename: string) =>
-  path.resolve(__dirname, `../test/${filename}`);
+const shader = (filename: string) => resolve(__dirname, `../test/${filename}`);
 const shaderContents = (filename: string) =>
-  JSON.stringify(fs.readFileSync(shader(filename)).toString());
+  JSON.stringify(readFileSync(shader(filename)).toString());
 
 describe("Test extensions", () => {
   test.each([".glsl", ".vs", ".fs"])("extension %s", async (extension) => {
-    const { stats, bundleJs } = await testCompiler(
-      shader("exampleShader" + extension),
-    );
+    const { stats } = await testCompiler(shader("exampleShader" + extension));
     const data = stats.toJson({ source: true });
-
-    console.log(bundleJs, stats.toJson());
 
     expect(data.errors).toEqual([]);
     expect(data.modules).toBeDefined();
@@ -30,7 +25,7 @@ describe("Test extensions", () => {
 });
 
 test("include", async () => {
-  const { stats, bundleJs } = await testCompiler(shader("includer.glsl"));
+  const { stats } = await testCompiler(shader("includer.glsl"));
   const data = stats.toJson({ source: true });
 
   expect(data.errors).toEqual([]);

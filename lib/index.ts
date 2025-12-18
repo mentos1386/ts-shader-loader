@@ -2,6 +2,7 @@ import { dirname } from "path";
 import { readFile } from "fs/promises";
 import { LoaderContext } from "webpack";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface LoaderOptions {}
 
 interface Import {
@@ -12,9 +13,9 @@ interface Import {
 async function parse(
   loader: LoaderContext<LoaderOptions>,
   source: string,
-  context: string
+  context: string,
 ): Promise<string> {
-  const importPattern = /^#include "([./\w_-]+)";?/gmi;
+  const importPattern = /^#include "([./\w_-]+)";?/gim;
 
   // Find all imports
   const imports: Import[] = [];
@@ -36,7 +37,7 @@ async function processImports(
   loader: LoaderContext<LoaderOptions>,
   source: string,
   context: string,
-  imports: Import[]
+  imports: Import[],
 ): Promise<string> {
   // In case no imports are available,
   const imp = imports.pop();
@@ -57,7 +58,7 @@ async function processImports(
   const parsedImport = await parse(
     loader,
     await readFile(resolvedPath, "utf-8"),
-    dirname(resolvedPath)
+    dirname(resolvedPath),
   );
 
   // Inject import in to the source
@@ -74,7 +75,7 @@ export default function (this: LoaderContext<LoaderOptions>, source: string) {
   parse(this, source, this.context)
     .then(
       (sourceWithIncludes) =>
-        `export default ${JSON.stringify(sourceWithIncludes)}`
+        `export default ${JSON.stringify(sourceWithIncludes)}`,
     )
     .then((sourceWithIncludes) => callback(null, sourceWithIncludes))
     .catch((err) => callback(err));
